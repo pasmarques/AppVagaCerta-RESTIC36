@@ -8,33 +8,24 @@ import Input from '../../components/Input';
 import { Button } from '../../components/Button';
 import api from '../../services/api';
 import { Alert } from 'react-native';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function Login({ navigation }) {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const  handleLogin = async () =>{
-        try{
-            const response = await api.get('/api/usuarios')
-            const users = response.data.usuarios;
+    const { signIn } = useAuth();
 
-            const user = users.find(u => u.email === email && u.senha === senha )
-
-            if (user){
-                navigation.navigate('Auth',{screen: 'Home'})
-            }
-            else if(email === '' || senha === ''){
-                Alert.alert('Obrigatório preencher ambos os campos')
-            }
-            else{
-                Alert.alert('Email ou senha incorretos')
-            }
+    const handleLogin = async () => {
+        try {
+          await signIn(email, senha);
+        } catch (error: any) {
+          Alert.alert('Erro', 'Não foi possível fazer login. Verifique suas credenciais.');
+          console.error(error);
         }
-        catch(error){
-            console.log(error)
-        }
-    }
+      };
+      
     return (
         <Wrapper>
             <Image source={BGTop} />

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AuthProvider, useAuth } from './src/contexts/AuthContext';
 
 import theme from './src/theme';
 
@@ -12,6 +13,7 @@ import FormScreen  from './src/screens/Form';
 import List  from './src/screens/List';
 import Profile  from './src/screens/Profile';
 import Details  from './src/screens/Details';
+import LoadingScreen from './src/screens/LoadingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -57,17 +59,18 @@ function Auth(){
   )
 }
 
-
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Login' screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="FormScreen" component={FormScreen} />
-          <Stack.Screen name="Auth" component={Auth} />
-        </Stack.Navigator>
+        <AuthProvider>
+          <Stack.Navigator initialRouteName='Login' screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="FormScreen" component={FormScreen} />
+            <Stack.Screen name="Auth" component={Auth} />
+          </Stack.Navigator>
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );

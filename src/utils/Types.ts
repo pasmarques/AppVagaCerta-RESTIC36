@@ -14,4 +14,5 @@ export type RootStackParamList = {
     Home: undefined;
     Profile: undefined;
     Details: {id: number};
+    Auth: { screen: string }; 
 };
