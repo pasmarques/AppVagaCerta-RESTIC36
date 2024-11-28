@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { 
-    Wrapper,
-    Container, 
-    Header, 
-    HeaderButtonContainer, 
-    ButtonIcon, 
-    ButtonText,
-    ContentContainer,
-} from '../Profile/styles';
+import { Wrapper, Container, Header, HeaderButtonContainer, ButtonIcon, ButtonText, ContentContainer } from '../Profile/styles';
 import Logo from '../../components/Logo';
 import theme from '../../theme';
-import Input from '../../components/Input'
+import Input from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useAuth } from '../../contexts/AuthContext';
 import { View } from 'react-native';
 
+export default function Profile({ navigation }) {
 
-export default function Profile({navigation }) {
+    const { signOut, user, editUser } = useAuth();
+    const [nome, setNome] = useState(user?.nome || '');
+    const [email, setEmail] = useState(user?.email || '');
+    const [senha, setSenha] = useState(user?.senha || '');
 
-    const { signOut, user } = useAuth();
+    useEffect(() => {
+        if (user) {
+            setNome(user.nome || '');
+            setEmail(user.email  || '');
+            setSenha(user.senha || '');
+        }
+    }, [user]);
+
+    const handleSave = async () => {
+        if (user) {
+            await editUser(user.id, nome, email, senha); // Chama a função de editar usuário
+        }
+    };
 
     return (
         <Wrapper>
@@ -37,25 +45,25 @@ export default function Profile({navigation }) {
 
             <Container>
                 <ContentContainer>
-                    <Input label='Nome' placeholder='digite seu nome'/>
-                    <Input label='E-mail' placeholder='digite seu e-mail'/>
-                    <Input label='Senha' placeholder='digite sua senha'/>
+                    <Input label='Nome' value={nome} onChangeText={setNome} />
+                    <Input label='E-mail' value={email} onChangeText={setEmail} />
+                    <Input label='Senha' value={senha} onChangeText={setSenha} secureTextEntry />
                 </ContentContainer>
 
-                <View style= {{flexDirection: 'row', gap: 20}}>
-                    <Button 
-                        title="Salvar informações" 
-                        noSpacing={true} 
+                <View style={{ flexDirection: 'row', gap: 20 }}>
+                    <Button
+                        title="Salvar informações"
+                        noSpacing={true}
                         variant='primary'
-                        />
-                    <Button 
-                        title="Sair da conta" 
-                        noSpacing={true} 
+                        onPress={handleSave}
+                    />
+                    <Button
+                        title="Sair da conta"
+                        noSpacing={true}
                         variant="secondary"
                         onPress={signOut}
-                        />
+                    />
                 </View>
-                
             </Container>
         </Wrapper>
     );

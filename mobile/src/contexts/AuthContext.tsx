@@ -10,6 +10,7 @@ interface AuthContextData {
   user: User | null;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
+  editUser: (id: number, nome: string, email: string, senha: string) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -100,8 +101,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     
   };
 
+  const editUser = async (id: number, nome: string, email: string, senha: string) => {
+    try { 
+        const response = await api.put(`/api/usuarios/${id}`, { nome, email, senha });
+        const updatedUser = response.data.usuario;
+
+        if (updatedUser) {
+            setUser(updatedUser); 
+            await AsyncStorage.setItem('@App:user', JSON.stringify(updatedUser));
+        }
+
+        Alert.alert('Sucesso', 'Informações atualizadas com sucesso');
+    } catch (error) {
+        console.error(error);
+        Alert.alert('Erro', 'Não foi possível atualizar as informações');
+    }
+};
+
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, isLoading }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, editUser,isLoading }}>
       {children}
     </AuthContext.Provider>
   );
