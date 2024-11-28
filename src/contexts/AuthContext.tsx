@@ -27,6 +27,7 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -80,8 +81,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // Realiza logout
   const signOut = async () => {
-    setUser(null);
-    await AsyncStorage.removeItem('@App:user');
+    Alert.alert(
+      "Atenção!", 
+      "Tem certeza que deseja sair da conta?",
+      [
+        {text: "Cancelar", style: "cancel"}
+        ,
+        { 
+          text: "Sim", 
+          onPress: async () => {
+            setUser(null);
+            await AsyncStorage.removeItem('@App:user');
+            navigation.navigate('Login');
+          } 
+        },
+      ], { cancelable: true } 
+    );
+    
   };
 
   return (

@@ -1,6 +1,6 @@
 import { Image} from 'react-native';
 import { Wrapper,Container, Form, TextContainer, TextBlack, TextLink, TextLinkContainer} from './styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import BGTop from '../../assets/BGTop.png';
 import Logo from '../../components/Logo';
@@ -15,7 +15,13 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const { signIn } = useAuth();
+    const { signIn, user } = useAuth();
+
+    useEffect(() => 
+        {
+        if(user)
+            navigation.navigate('Auth', { screen: 'Home' });
+        },[user]);
 
     const handleLogin = async () => {
         try {
@@ -56,6 +62,7 @@ export default function Login({ navigation }) {
                             </TextLink>
                         </TextLinkContainer>
                     </TextContainer>
+
                 </Form>
 
         

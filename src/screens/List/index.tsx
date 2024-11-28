@@ -45,7 +45,7 @@ export default function List() {
                             <VagaCard
                                 id={item.id}
                                 title={item.titulo}
-                                dataCreated={item.dataCadastro}
+                                dataCreated={new Date(item.dataCadastro).toISOString().split('T')[0]}
                                 company={item.empresa}
                             />
                         }

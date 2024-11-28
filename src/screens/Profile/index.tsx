@@ -13,9 +13,13 @@ import Logo from '../../components/Logo';
 import theme from '../../theme';
 import Input from '../../components/Input'
 import { Button } from '../../components/Button';
+import { useAuth } from '../../contexts/AuthContext';
+import { View } from 'react-native';
 
 
 export default function Profile({navigation }) {
+
+    const { signOut, user } = useAuth();
 
     return (
         <Wrapper>
@@ -38,11 +42,20 @@ export default function Profile({navigation }) {
                     <Input label='Senha' placeholder='digite sua senha'/>
                 </ContentContainer>
 
-                <Button 
-                    title="Salvar informações" 
-                    noSpacing={true} 
-                    variant='primary'
-                    />
+                <View style= {{flexDirection: 'row', gap: 20}}>
+                    <Button 
+                        title="Salvar informações" 
+                        noSpacing={true} 
+                        variant='primary'
+                        />
+                    <Button 
+                        title="Sair da conta" 
+                        noSpacing={true} 
+                        variant="secondary"
+                        onPress={signOut}
+                        />
+                </View>
+                
             </Container>
         </Wrapper>
     );

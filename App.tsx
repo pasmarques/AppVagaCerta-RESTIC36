@@ -13,7 +13,6 @@ import FormScreen  from './src/screens/Form';
 import List  from './src/screens/List';
 import Profile  from './src/screens/Profile';
 import Details  from './src/screens/Details';
-import LoadingScreen from './src/screens/LoadingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
