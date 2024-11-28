@@ -55,6 +55,7 @@ export default function List() {
                                 <Text>
                                     Você ainda não tem vagas cadastradas
                                 </Text>
+                                
                                 <Text>
                                     Crie vagas.
                                 </Text>
