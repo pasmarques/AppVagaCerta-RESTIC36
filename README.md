@@ -1,14 +1,26 @@
 # App VagaCerta
 
-Este projeto é uma App mobile conectado a uma API criada com Node.js, Express e Sequelize que implementa operações Create, Read e Update para a entidade "Usuários". O banco de dados utilizado é o SQLite.
+Este projeto é uma App mobile conectado a uma API criada com Node.js, Express e Sequelize que implementa operações Create, Read e Update para a entidade "Usuários". O projeto foi criado para o último projeto da trilha de desenvolvimento mobile promovida pela RESTIC36. Os requisitos para a elaboração dessa aplicação foram:  
+1. Conectar com a API de vagas feita com base no conteúdo que o professor Jeferson passou. 
+2. Permitir o acesso somente após realizar o login.
+3. Criar um contexto para o usuário autenticado.
+4. Manter localmente os dados do usuário autenticado.
+5. Exibir botão de contato apenas quando a vaga estiver aberta e o botão deve redirecionar para o whatsapp;
+6. Desenvolver a edição de usuário.
+7. Implementar função de logout.
 
 ## Tecnologias Utilizadas
 - Node.js
 - Express
 - Sequelize
-- SQLite
+- SQLite: banco de dados.
 - Body-parser
 - UUID para geração de IDs únicos
+- Async Storage
+- Expo: framework para desenvolvimento de aplicações móveis.
+- TypeScript: linguagem de programação para desenvolvimento de aplicações.
+- React Native: framework para desenvolvimento de aplicações móveis.
+- React Navigation: biblioteca para navegação entre telas.
 
 ## Estrutura do Projeto
 
@@ -34,7 +46,7 @@ Nessa aplicação temos dois projetos: O backend (API) e o mobile (frontend).
     * `Login` - Tela de login para o usuário acessar a aplicação.
     * `Profile` - Tela destinada ao usuário onde ele pode editar suas informações ou fazer Logout.
 
-* `services/api.ts`: Conexão com a API.
+* `services/api.ts`: Conexão com a API usando o axios.
 ```bash
 
 import axios from 'axios'

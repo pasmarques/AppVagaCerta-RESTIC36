@@ -50,7 +50,7 @@ Arquivo que gerencia a lógica de inicialização do app e renderiza a interface
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/pasmarques/AppVagaCerta-RESTIC36.git
+   git clone https://github.com/ciromoura/restic36-app-vagacerta.git
    ```
 
 2. Instale as dependências:
