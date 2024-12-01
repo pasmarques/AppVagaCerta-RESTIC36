@@ -170,7 +170,7 @@ O servidor estará rodando em `http://localhost:3000`.
 
 Agora vamos rodar o mobile:
 
-- Abra a pasta mobile no terminal eexecute:
+- Abra a pasta mobile no terminal e execute:
 
 ```bash
 yarn start
