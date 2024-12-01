@@ -165,23 +165,18 @@ Abra a pasta backend no terminal e execute:
 ```bash
 npm start
 ```
-ou
-
-```bash
-yarn start
-```
 
 O servidor estará rodando em `http://localhost:3000`.
 
 Agora vamos rodar o mobile:
 
-- Navegue até a pasta mobile e em outro terminal, execute:
+- Abra a pasta mobile no terminal eexecute:
 
 ```bash
 yarn start
 ```
 
-A partir daí você poderá simular o app. Recomendamos o uso do aplicativo Expo Go, para usa-lo basta acessar o aplicativo e escanear o QRCode e testar as funcionalidades, certifique-se de instalar a verção do aplicativo com a SDk 51, caso o seu aplicativo esteja com uma versão posterior, será mostrado uma mensagem com um link para baixar o app com o SDK 51, baixe-o, desistale o app atual e instale o app que voce baixou.
+A partir daí você poderá simular o app. Recomendamos o uso do aplicativo Expo Go, para usa-lo basta acessar o aplicativo e escanear o QRCode e testar as funcionalidades, certifique-se de instalar a versão do aplicativo com a SDk 51, caso o seu aplicativo esteja com uma versão posterior será mostrado uma mensagem com um link para baixar o app com o SDK 51, baixe-o, desistale o app atual e instale o app que você baixou.
 
 
 ## Contribuição:
