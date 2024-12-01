@@ -159,9 +159,7 @@ Adaptador de Rede sem Fio Wi-Fi:
    - Gateway Padrão. . . . . . . . . . . . . . . : 172.26.0.1
 
 - Copie o numero que está em IPv4 Address. 
-- Cole no código onde tem "XXX...":
-
-* `mobile/scr/services/api.ts`:
+- Cole no código onde tem "XXX..." de `mobile/scr/services/api.ts`:
 ```bash
 
 import axios from 'axios'
@@ -172,7 +170,7 @@ import axios from 'axios'
 
 export default api;
 ```
-Abra a pasta backed no terminal e execute:
+Abra a pasta backend no terminal e execute:
 
 ```bash
 npm start
