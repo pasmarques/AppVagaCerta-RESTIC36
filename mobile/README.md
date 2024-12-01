@@ -74,11 +74,3 @@ A partir daí você poderá simular o app. Caso queira usar o Expo Go, basta ace
 
 Para contribuir com o projeto, basta fazer um fork do repositório e enviar um pull request com suas alterações organizadas e explicadas através dos commits.
 
-## Licença:
-
-Este projeto é licenciado sob a licença MIT. Você pode encontrar mais informações sobre a licença no arquivo LICENSE. 
-* [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
-
-
-
-
