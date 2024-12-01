@@ -1,13 +1,13 @@
 # App VagaCerta
 
 Este projeto é uma App mobile conectado a uma API criada com Node.js, Express e Sequelize que implementa operações Create, Read e Update para a entidade "Usuários". O projeto foi criado para o último projeto da trilha de desenvolvimento mobile promovida pela RESTIC36. Os requisitos para a elaboração dessa aplicação foram:  
-R1. Conectar com a API de vagas feita com base no conteúdo que o professor Jeferson passou. 
-R2. Permitir o acesso somente após realizar o login.
-R3. Criar um contexto para o usuário autenticado.
-R4. Manter localmente os dados do usuário autenticado.
-R5. Exibir botão de contato apenas quando a vaga estiver aberta e o botão deve redirecionar para o whatsapp;
-R6. Desenvolver a edição de usuário.
-R7. Implementar função de logout.
+- R1. Conectar com a API de vagas feita com base no conteúdo que o professor Jeferson passou. 
+- R2. Permitir o acesso somente após realizar o login.
+- R3. Criar um contexto para o usuário autenticado.
+- R4. Manter localmente os dados do usuário autenticado.
+- R5. Exibir botão de contato apenas quando a vaga estiver aberta e o botão deve redirecionar para o whatsapp;
+- R6. Desenvolver a edição de usuário.
+- R7. Implementar função de logout.
 
 ## Tecnologias Utilizadas
 - Node.js
@@ -37,13 +37,13 @@ Nessa aplicação temos dois projetos: O backend (API) e o mobile (frontend).
 
 * `components`: pasta contendo os componentes da aplicação, sendo estes separados por pastas contendo os arquivos styles.ts e index.tsx.
 
-* `contexts`: contém o contexto responsável por gerenciar as operações de Create, Read e Update em usuários e Logout do usuário na aplicação, além de lidar com o armazenamento local usando o AsyncStorage (R3).
+* `contexts/AuthContext`: contém o contexto responsável por gerenciar as operações de Create, Read e Update em usuários e Logout do usuário na aplicação, além de lidar com o armazenamento local usando o AsyncStorage (R2, R3 e R4).
 
 * `Screens`: pasta contendo as telas da aplicação:
     * `Details` - Tela para visualização dos detalhes das vagas e que redireciona para o Whatsapp caso a vaga esteja aberta (R5).
     * `Form` - Tela que permite a criação de um novo usuário.
     * `List` - Tela inicial que mostra as vagas cadastradas.
-    * `Login` - Tela de login para o usuário acessar a aplicação.
+    * `Login` - Tela de login para o usuário acessar a aplicação (R2).
     * `Profile` - Tela destinada ao usuário onde ele pode editar suas informações ou fazer Logout (R6 e R7).
 
 * `services/api.ts`: Conexão com a API usando o axios (R1).
@@ -164,7 +164,7 @@ Adaptador de Rede sem Fio Wi-Fi:
 * `mobile/scr/services/api.ts`:
 ```bash
 
-    import axios from 'axios'
+import axios from 'axios'
 
     const api = axios.create({
     baseURL: 'http://XXX.XXX.X.XXX:3000' 
