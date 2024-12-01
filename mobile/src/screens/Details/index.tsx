@@ -16,17 +16,18 @@ import theme from '../../theme';
 import { Button } from '../../components/Button';
 import api from '../../services/api';
 import { VagaProps } from '../../utils/Types';
+import { Linking } from 'react-native'; // Importar para abrir links
 
-export default function Details({route, navigation }) {
+export default function Details({ route, navigation }) {
 
-    const [id, setID] = useState(route.params.id)
+    const [id, setID] = useState(route.params.id);
     const [vaga, setVaga] = useState<VagaProps>(null);
 
     const fetchVaga = async () => {
-        try{
-            const response = await api.get(`/api/vagas/${id}`)
-            console.log(response)
-            const data = response.data.job
+        try {
+            const response = await api.get(`/api/vagas/${id}`);
+            console.log(response);
+            const data = response.data.job;
             setVaga({
                 id: data.id,
                 title: data.titulo,
@@ -35,15 +36,27 @@ export default function Details({route, navigation }) {
                 phone: data.telefone,
                 status: data.status,
                 company: data.empresa,
-            })
+            });
+        } catch (error) {
+            console.log(error);
         }
-        catch(error){
-            console.log(error)
-        }
-    }
-    useEffect(()=>{
-        fetchVaga()
-    },[id]);
+    };
+
+    const handleWhatsAppContact = () => {
+       
+        const phoneNumber = '73988540662';
+        const whatsappURL = `https://wa.me/+55${phoneNumber}?text=Olá! Estou interessado na vaga ${vaga.title}.`;
+    
+        // Abrir o WhatsApp com a URL formatada
+        Linking.openURL(whatsappURL).catch(err =>
+            console.error("Não foi possível abrir o WhatsApp", err)
+        );
+    };
+
+    useEffect(() => {
+        fetchVaga();
+    }, [id]);
+
     return (
         <Wrapper>
             <Header>
@@ -60,19 +73,21 @@ export default function Details({route, navigation }) {
             {vaga ? (
                 <Container>
                     <ContentContainer>
-                    <Title>{vaga.title}</Title>
-                    <Description>{vaga.description}</Description>
+                        <Title>{vaga.title}</Title>
+                        <Description>{vaga.description}</Description>
                     </ContentContainer>
-                    <Button 
-                    title="Entrar em contato" 
-                    noSpacing={true} 
-                    variant='primary'
-                    />
+                    {vaga.status === 'Aberta' && (
+                        <Button 
+                            title="Entrar em contato" 
+                            noSpacing={true} 
+                            variant="primary"
+                            onPress={handleWhatsAppContact} // Adiciona o redirecionamento
+                        />
+                    )}
                 </Container>
             ) : (
                 <Title>Vaga não foi encontrada</Title>
             )}
-            
         </Wrapper>
     );
 }

@@ -4,7 +4,7 @@ export type VagaProps = {
     description: String;
     date: String;
     phone: String;
-    status: Boolean;
+    status: String;
     company: String;
 };
 
@@ -16,3 +16,4 @@ export type RootStackParamList = {
     Details: {id: number};
     Auth: { screen: string }; 
 };
+
