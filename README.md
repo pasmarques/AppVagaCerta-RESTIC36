@@ -37,7 +37,7 @@ Nessa aplicação temos dois projetos: O backend (API) e o mobile (frontend).
 
 * `components`: pasta contendo os componentes da aplicação, sendo estes separados por pastas contendo os arquivos styles.ts e index.tsx.
 
-* `contexts/AuthContext`: contém o contexto responsável por gerenciar as operações de Create, Read e Update em usuários e Logout do usuário na aplicação, além de lidar com o armazenamento local usando o AsyncStorage (R2, R3 e R4).
+* `contexts/AuthContext`: contém o contexto responsável por gerenciar as operações de Create, Read e Update em usuários e Logout do usuário na aplicação, além de lidar com o armazenamento local usando o AsyncStorage para salvar o usúario autenticado (Usamos esses dados salvos localmente para acessar o app sem precisar fazer o login novamente) (R2, R3 e R4).
 
 * `Screens`: pasta contendo as telas da aplicação:
     * `Details` - Tela para visualização dos detalhes das vagas e que redireciona para o Whatsapp caso a vaga esteja aberta (R5).
