@@ -42,7 +42,7 @@ export default function Details({ route, navigation }) {
         }
     };
 
-    const handleWhatsAppContact = () => {
+   /* const handleWhatsAppContact = () => {
        
         const phoneNumber = '73988540662';
         const whatsappURL = `https://wa.me/+55${phoneNumber}?text=Olá! Estou interessado na vaga ${vaga.title}.`;
@@ -51,6 +51,15 @@ export default function Details({ route, navigation }) {
         Linking.openURL(whatsappURL).catch(err =>
             console.error("Não foi possível abrir o WhatsApp", err)
         );
+    }; */ // Teste com número real
+
+    const handleWhatsAppContact = () => {
+        if (vaga.phone) {
+            const whatsappURL = `https://wa.me/${vaga.phone}?text=Olá! Estou interessado na vaga ${vaga.title}.`;
+            Linking.openURL(whatsappURL).catch(err =>
+                console.error("Não foi possível abrir o WhatsApp", err)
+            );
+        }
     };
 
     useEffect(() => {
