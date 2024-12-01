@@ -28,6 +28,9 @@ Este projeto é uma API RESTful criada com Node.js, Express e Sequelize que impl
    ```bash
    npm install
    ```
+   ```bash
+   npm install express
+   ```
 
 ## Uso
 
@@ -35,6 +38,11 @@ Este projeto é uma API RESTful criada com Node.js, Express e Sequelize que impl
 Para iniciar o servidor em modo de desenvolvimento com o `nodemon`:
 ```bash
 npm start
+```
+ou
+
+```bash
+yarn start
 ```
 
 O servidor estará rodando em `http://localhost:3000`.
