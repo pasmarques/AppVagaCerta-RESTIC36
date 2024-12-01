@@ -1,6 +1,6 @@
 # App VagaCerta
 
-Este projeto é uma App mobile criado com base no modelo do professor Ciro Daniel.
+Este projeto é um App mobile criado com base no modelo do professor Ciro Daniel.
 
 ## Tecnologias Utilizadas
 - Node.js
