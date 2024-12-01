@@ -37,7 +37,7 @@ Nessa aplicação temos dois projetos: O backend (API) e o mobile (frontend).
 * `services/api.ts`: Conexão com a API.
 ```bash
 
-    import axios from 'axios'
+import axios from 'axios'
 
     const api = axios.create({
     baseURL: 'http://192.168.0.106:3000' 
@@ -99,17 +99,27 @@ const PORT = process.env.PORT || 3000;
    ```
 
 2. Instale as dependências:
+
+- 2.1 Mobile:
+
    ```bash
    npm install
-   ```
-   ```bash
-   npm install express
    ```
    ```bash
    npm install axios
    ```
    ```bash
    yarn install 
+   ```
+
+- 2.2 Backend:
+
+   ```bash
+   npm install
+   ```
+
+   ```bash
+   npm install express
    ```
 
 ### Executar o Servidor
