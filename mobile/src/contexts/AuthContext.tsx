@@ -11,6 +11,7 @@ interface AuthContextData {
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   editUser: (id: number, nome: string, email: string, senha: string) => Promise<void>;
+  createUser: (name: string, email: string, senha: string) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -118,8 +119,43 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
 };
 
+// Função de registro de novo usuário
+const createUser = async (name: string, email: string, senha: string) =>{
+  if (!name  || !email ||  !senha) {
+    Alert.alert('Erro', 'Preencha todos os campos, email e senha');
+    return;
+  }
+  try {
+    const response = await api.get('/api/usuarios');
+    const users = response.data.usuarios;
+
+    const registeredEmail = users.find(
+      (u: User) => u.email === email
+    );
+
+    if (registeredEmail) {
+      Alert.alert('Erro', 'E-mail já cadastrado!');
+    } 
+    else {
+      const newUser = { nome: name, email: email, senha: senha};
+      const postResponse = await api.post('/api/usuarios', newUser);
+
+      if (postResponse.status === 201) {
+          Alert.alert('Sucesso', 'Usuário criado com sucesso!');
+          navigation.navigate('Login');
+
+      } else {
+          Alert.alert('Erro', 'Houve um problema ao criar o usuário.');
+      }
+    }
+  } catch (error) {
+    console.error(error);
+    Alert.alert('Erro', 'Não foi possível conectar à API');
+  }
+};
+
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, editUser,isLoading }}>
+    <AuthContext.Provider value={{ user, signIn, signOut, editUser, createUser, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
