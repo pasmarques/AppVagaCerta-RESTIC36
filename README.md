@@ -1,6 +1,6 @@
 # App VagaCerta
 
-Este projeto é uma App mobile conectado a uma API criada com Node.js, Express e Sequelize que implementa operações Create, Read e Update para a entidade "Usuários". O projeto foi criado para o último projeto da trilha de desenvolvimento mobile promovida pela RESTIC36. Os requisitos para a elaboração dessa aplicação foram:  
+Este projeto é uma App mobile conectado a uma API criada com Node.js, Express e Sequelize que implementa operações Create, Read e Update para a entidade "Usuários". O projeto foi criado como o último trabalho da trilha de desenvolvimento mobile promovida pela RESTIC36. Os requisitos para a elaboração dessa aplicação foram:  
 - R1. Conectar com a API de vagas feita com base no conteúdo que o professor Jeferson passou. 
 - R2. Permitir o acesso somente após realizar o login.
 - R3. Criar um contexto para o usuário autenticado.
