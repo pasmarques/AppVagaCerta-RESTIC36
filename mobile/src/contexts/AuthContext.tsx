@@ -103,21 +103,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const editUser = async (id: number, nome: string, email: string, senha: string) => {
-    try { 
-        const response = await api.put(`/api/usuarios/${id}`, { nome, email, senha });
-        const updatedUser = response.data.usuario;
-
-        if (updatedUser) {
-            setUser(updatedUser); 
-            await AsyncStorage.setItem('@App:user', JSON.stringify(updatedUser));
-        }
-
-        Alert.alert('Sucesso', 'Informações atualizadas com sucesso');
+    try {
+      const response = await api.put(`/api/usuarios/${id}`, { nome, email, senha });
+      const updatedUser = response.data.user;
+      
+      if (updatedUser) {
+        setUser(updatedUser); 
+        console.log('User state updated:', updatedUser);
+        await AsyncStorage.setItem('@App:user', JSON.stringify(updatedUser)); 
+      }
+  
+      Alert.alert('Sucesso', 'Informações atualizadas com sucesso');
     } catch (error) {
-        console.error(error);
-        Alert.alert('Erro', 'Não foi possível atualizar as informações');
+      console.error(error);
+      Alert.alert('Erro', 'Não foi possível atualizar as informações');
     }
-};
+  };
+  
 
 // Função de registro de novo usuário
 const createUser = async (name: string, email: string, senha: string) =>{

@@ -17,9 +17,9 @@ export default function Profile({ navigation }) {
 
     useEffect(() => {
         if (user) {
-            setNome(user.nome || '');
-            setEmail(user.email  || '');
-            setSenha(user.senha || '');
+            setNome(user?.nome || '');
+            setEmail(user?.email || '');
+            setSenha(user?.senha || '');
         }
     }, [user]);
 
