@@ -1,6 +1,6 @@
 # App VagaCerta
 
-Este projeto é um App mobile criado com base no modelo do professor Ciro Daniel.
+Este projeto é um App mobile criado com base no modelo do professor Ciro Daniel https://github.com/ciromoura/restic36-app-vagacerta.git.
 
 ## Tecnologias Utilizadas
 - Node.js
@@ -50,7 +50,7 @@ Arquivo que gerencia a lógica de inicialização do app e renderiza a interface
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/ciromoura/restic36-app-vagacerta.git
+   git clone https://github.com/pasmarques/AppVagaCerta-RESTIC36.git
    ```
 
 2. Instale as dependências:
