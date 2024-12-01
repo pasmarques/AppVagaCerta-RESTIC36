@@ -47,6 +47,7 @@ export default function List() {
                                 title={item.titulo}
                                 dataCreated={new Date(item.dataCadastro).toISOString().split('T')[0]}
                                 company={item.empresa}
+                                status= {item.status}
                             />
                         }
                         showsVerticalScrollIndicator={true}
@@ -55,7 +56,6 @@ export default function List() {
                                 <Text>
                                     Você ainda não tem vagas cadastradas
                                 </Text>
-                                
                                 <Text>
                                     Crie vagas.
                                 </Text>
