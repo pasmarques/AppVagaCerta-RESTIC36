@@ -112,26 +112,16 @@ const PORT = process.env.PORT || 3000;
 
 2. Instale as dependências:
 
-- 2.1 Mobile:
-
-   ```bash
-   npm install
-   ```
-   ```bash
-   npm install axios
-   ```
+- 2.1 Mobile (Abra a pasta Mobile):
+  
    ```bash
    yarn install 
    ```
 
-- 2.2 Backend:
+- 2.2 Backend (Abra a pasta backend):
 
    ```bash
    npm install
-   ```
-
-   ```bash
-   npm install express
    ```
 
 ### Executar o Servidor
@@ -158,8 +148,8 @@ Adaptador de Rede sem Fio Wi-Fi:
    - Máscara de Sub-rede . . . . . . . . . . . . : 255.255.192.0
    - Gateway Padrão. . . . . . . . . . . . . . . : 172.26.0.1
 
-- Copie o numero que está em IPv4 Address. 
-- Cole no código onde tem "XXX..." de `mobile/scr/services/api.ts`:
+ Copie o numero que está em IPv4 Address. 
+ Cole no código onde tem "XXX..." de `mobile/scr/services/api.ts`:
 ```bash
 
 import axios from 'axios'
@@ -191,7 +181,7 @@ Agora vamos rodar o mobile:
 yarn start
 ```
 
-A partir daí você poderá simular o app. Caso queira usar o Expo Go, basta acessar o aplicativo e escanear o QRCode e testar ass funcionalidades.
+A partir daí você poderá simular o app. Recomendamos o uso do aplicativo Expo Go, para usa-lo basta acessar o aplicativo e escanear o QRCode e testar as funcionalidades, certifique-se de instalar a verção do aplicativo com a SDk 51, caso o seu aplicativo esteja com uma versão posterior, será mostrado uma mensagem com um link para baixar o app com o SDK 51, baixe-o, desistale o app atual e instale o app que voce baixou.
 
 
 ## Contribuição:
